@@ -1,0 +1,23 @@
+const inquirer = require('inquirer')
+
+inquirer.prompt([
+    {
+    name: 'param1',
+    message: "Qual a primeira nota do aluno?",
+    },
+    {
+    name: 'param2',
+    message: "Qual a segunda nota do aluno?",
+    },
+]).then((resposta) => {
+    console.log(resposta)
+
+    const nota1 = parseInt (resposta.param1); //como o resultado vem do console, ele volta como string. 
+    const nota2 = parseInt (resposta.param2);
+
+    const media = nota1 + nota2 / 2
+    console.log(media);
+    
+}).catch((erro) =>{     //caso der erro
+    console.log("DEu erro: " + erro);
+})
